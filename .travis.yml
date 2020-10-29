@@ -3,10 +3,12 @@ jdk:
 - openjdk11
 
 addons:
-sonarcloud:
-organization: "davidestroveglia"
-token: "c20eb427e762c9ff3abb1b54141bbaa788c24b88"
+  sonarcloud:
+    organization: "davidestroveglia"
+    token:
+      secure: "c20eb427e762c9ff3abb1b54141bbaa788c24b88" # encrypted value of your token
 
 script:
-- ant build
-- sonar-scanner
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - ant build
+  - sonar-scanner
